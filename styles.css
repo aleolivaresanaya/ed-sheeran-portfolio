@@ -1,0 +1,658 @@
+:root {
+	color-scheme: dark;
+	--color-bg: #11110f;
+	--color-panel: #1b1a17;
+	--color-panel-hover: #24221d;
+	--color-text: #f6f1e8;
+	--color-muted: #b9b2a7;
+	--color-accent: #f07836;
+	--color-accent-light: #ffad73;
+	--color-line: #39362f;
+	--font-body: "Avenir Next", "Segoe UI", sans-serif;
+	--font-display: Georgia, "Times New Roman", serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 6rem;
+}
+
+body {
+	min-width: 320px;
+	margin: 0;
+	background-color: var(--color-bg);
+	background-image: radial-gradient(ellipse at 82% 9%, rgb(240 120 54 / 9%), transparent 31rem);
+	color: var(--color-text);
+	font-family: var(--font-body);
+	font-size: 1rem;
+	line-height: 1.7;
+	-webkit-font-smoothing: antialiased;
+}
+
+body > a:first-child {
+	position: absolute;
+	z-index: 10;
+	top: 1rem;
+	left: 1rem;
+	padding: 0.7rem 1rem;
+	transform: translateY(-160%);
+	border-radius: 0.2rem;
+	background: var(--color-text);
+	color: var(--color-bg);
+	font-weight: 700;
+}
+
+body > a:first-child:focus {
+	transform: translateY(0);
+}
+
+a {
+	color: var(--color-accent-light);
+	text-decoration-thickness: 0.08em;
+	text-underline-offset: 0.2em;
+}
+
+a:hover {
+	color: var(--color-text);
+}
+
+a:focus-visible {
+	outline: 3px solid var(--color-accent-light);
+	outline-offset: 5px;
+	border-radius: 2px;
+}
+
+header {
+	position: sticky;
+	z-index: 5;
+	top: 0;
+	display: flex;
+	min-height: 5.5rem;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	padding: 0.8rem max(2rem, calc((100vw - 1240px) / 2));
+	border-bottom: 1px solid rgb(246 241 232 / 10%);
+	background: rgb(17 17 15 / 93%);
+	backdrop-filter: blur(16px);
+}
+
+header > a {
+	color: var(--color-text);
+	font-family: var(--font-display);
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+header > a::after {
+	display: inline-block;
+	width: 0.45rem;
+	height: 0.45rem;
+	margin-left: 0.25rem;
+	border-radius: 50%;
+	background: var(--color-accent);
+	content: "";
+	vertical-align: top;
+}
+
+nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 0.25rem 1.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav a {
+	display: inline-block;
+	padding: 0.5rem 0;
+	color: var(--color-muted);
+	font-size: 0.88rem;
+	text-decoration: none;
+	transition: color 180ms ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+	color: var(--color-accent-light);
+}
+
+main {
+	width: min(1240px, calc(100% - 4rem));
+	margin-inline: auto;
+}
+
+main > section {
+	padding-block: 6.5rem;
+	border-bottom: 1px solid var(--color-line);
+	scroll-margin-top: 6rem;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+	margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+	color: var(--color-text);
+	line-height: 1.08;
+}
+
+h1,
+h2 {
+	font-family: var(--font-display);
+	font-weight: 500;
+}
+
+h2 {
+	margin-bottom: 1.6rem;
+	font-size: 3.25rem;
+}
+
+h3 {
+	margin-bottom: 1.25rem;
+	font-size: 1.45rem;
+}
+
+main > section > p {
+	max-width: 48rem;
+	color: var(--color-muted);
+}
+
+#inicio {
+	display: grid;
+	min-height: 690px;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+	grid-template-rows: auto auto auto 1fr;
+	align-items: center;
+	column-gap: clamp(3rem, 8vw, 8rem);
+	padding-block: 4.5rem 6rem;
+	border-bottom: 1px solid var(--color-line);
+}
+
+#inicio > figure {
+	position: relative;
+	grid-column: 1;
+	grid-row: 1 / 5;
+	width: 100%;
+	height: 560px;
+	margin-bottom: 0;
+	overflow: hidden;
+	background: var(--color-panel);
+}
+
+#inicio > figure::after {
+	position: absolute;
+	inset: 45% 0 0;
+	background: linear-gradient(transparent, rgb(0 0 0 / 68%));
+	content: "";
+	pointer-events: none;
+}
+
+#inicio > figure img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 30%;
+}
+
+#inicio > figure figcaption {
+	position: absolute;
+	z-index: 1;
+	right: 1.5rem;
+	bottom: 1.25rem;
+	left: 1.5rem;
+	color: var(--color-text);
+	font-size: 0.88rem;
+}
+
+#inicio > p:first-of-type {
+	align-self: end;
+	margin-bottom: 0.8rem;
+	color: var(--color-accent-light);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+#inicio h1 {
+	margin-bottom: 1rem;
+	font-size: 6.5rem;
+	letter-spacing: -0.035em;
+	line-height: 0.95;
+}
+
+#inicio p[itemprop="description"] {
+	max-width: 27rem;
+	margin-bottom: 2rem;
+	color: var(--color-muted);
+	font-size: 1.15rem;
+}
+
+#inicio > a {
+	justify-self: start;
+	align-self: start;
+	padding: 0.9rem 1.35rem;
+	border: 1px solid var(--color-accent);
+	background: var(--color-accent);
+	color: #17120e;
+	font-size: 0.92rem;
+	font-weight: 700;
+	text-decoration: none;
+	transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+#inicio > a:hover {
+	transform: translateY(-2px);
+	border-color: var(--color-accent-light);
+	background: var(--color-accent-light);
+	color: #17120e;
+}
+
+#biografia article {
+	max-width: 760px;
+	padding-left: 1.5rem;
+	border-left: 2px solid var(--color-accent);
+}
+
+#biografia article p {
+	color: var(--color-muted);
+}
+
+#biografia article p:last-child {
+	margin-top: 1.5rem;
+}
+
+#discografia > div {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1.25rem;
+	margin-top: 2.5rem;
+}
+
+#discografia article {
+	min-width: 0;
+	padding: 0.8rem 0.8rem 1.2rem;
+	border: 1px solid var(--color-line);
+	background: var(--color-panel);
+	transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
+}
+
+#discografia article:hover {
+	transform: translateY(-5px);
+	border-color: var(--color-accent);
+	background: var(--color-panel-hover);
+}
+
+#discografia article figure {
+	margin-bottom: 1.1rem;
+	overflow: hidden;
+	background: #292720;
+}
+
+#discografia article figure img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	transition: transform 300ms ease;
+}
+
+#discografia article:hover figure img {
+	transform: scale(1.035);
+}
+
+#discografia article figcaption {
+	padding: 0.75rem 0.15rem 0;
+	color: var(--color-text);
+	font-weight: 700;
+}
+
+#discografia article p {
+	margin: 0;
+	padding-inline: 0.15rem;
+	color: var(--color-muted);
+	font-size: 0.86rem;
+}
+
+#canciones ul {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0 3rem;
+	margin: 2rem 0 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: songs;
+}
+
+#canciones li {
+	display: flex;
+	min-height: 5rem;
+	align-items: center;
+	gap: 1.25rem;
+	border-bottom: 1px solid var(--color-line);
+	color: var(--color-text);
+	font-size: 1.1rem;
+	counter-increment: songs;
+}
+
+#canciones li::before {
+	width: 2rem;
+	color: var(--color-accent-light);
+	content: "0" counter(songs);
+	font-size: 0.78rem;
+	font-variant-numeric: tabular-nums;
+}
+
+#canciones li [itemprop="byArtist"] {
+	display: none;
+}
+
+#galeria > div {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-rows: repeat(2, 250px);
+	gap: 1rem;
+	margin-top: 2.5rem;
+}
+
+#galeria figure {
+	position: relative;
+	min-width: 0;
+	min-height: 0;
+	margin-bottom: 0;
+	overflow: hidden;
+	background: var(--color-panel);
+}
+
+#galeria figure:first-child {
+	grid-row: 1 / 3;
+}
+
+#galeria figure img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 350ms ease;
+}
+
+#galeria figure:hover img {
+	transform: scale(1.035);
+}
+
+#galeria figure figcaption {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 3.5rem 1.1rem 1rem;
+	background: linear-gradient(transparent, rgb(0 0 0 / 88%));
+	color: var(--color-text);
+	font-size: 0.82rem;
+}
+
+#enlaces ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 2rem 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+#enlaces a {
+	display: inline-block;
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--color-line);
+	color: var(--color-text);
+	font-size: 0.92rem;
+	text-decoration: none;
+	transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+}
+
+#enlaces a:hover {
+	border-color: var(--color-accent);
+	background: var(--color-panel);
+	color: var(--color-accent-light);
+}
+
+footer {
+	display: flex;
+	width: min(1240px, calc(100% - 4rem));
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	margin-inline: auto;
+	padding-block: 2rem;
+	color: var(--color-muted);
+	font-size: 0.82rem;
+}
+
+footer p {
+	margin: 0;
+}
+
+footer a {
+	flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+	header {
+		gap: 1.25rem;
+		padding-inline: 1.5rem;
+	}
+
+	nav ul {
+		gap: 0.2rem 0.9rem;
+	}
+
+	main {
+		width: min(100% - 3rem, 760px);
+	}
+
+	#inicio {
+		min-height: 0;
+		column-gap: 2.5rem;
+	}
+
+	#inicio > figure {
+		height: 480px;
+	}
+
+	#inicio h1 {
+		font-size: 4.5rem;
+	}
+
+	#discografia > div {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	footer {
+		width: min(100% - 3rem, 760px);
+	}
+}
+
+@media (max-width: 640px) {
+	html {
+		scroll-padding-top: 8rem;
+	}
+
+	header {
+		position: relative;
+		display: block;
+		padding: 1rem 1.25rem 0.75rem;
+	}
+
+	header > a {
+		display: inline-block;
+		margin-bottom: 0.8rem;
+	}
+
+	nav {
+		margin-inline: -1.25rem;
+		overflow-x: auto;
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-line) transparent;
+	}
+
+	nav ul {
+		width: max-content;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		gap: 1.25rem;
+		padding: 0 1.25rem 0.25rem;
+	}
+
+	nav a {
+		white-space: nowrap;
+	}
+
+	main {
+		width: calc(100% - 2.5rem);
+	}
+
+	main > section {
+		padding-block: 4.5rem;
+		scroll-margin-top: 1rem;
+	}
+
+	h2 {
+		margin-bottom: 1.25rem;
+		font-size: 2.5rem;
+	}
+
+	#inicio {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: auto;
+		gap: 0;
+		padding-top: 2rem;
+	}
+
+	#inicio > figure {
+		grid-column: 1;
+		grid-row: 1;
+		height: min(112vw, 460px);
+		margin-bottom: 2rem;
+	}
+
+	#inicio > p:first-of-type,
+	#inicio h1,
+	#inicio p[itemprop="description"],
+	#inicio > a {
+		grid-column: 1;
+		grid-row: auto;
+	}
+
+	#inicio > p:first-of-type {
+		margin-bottom: 0.65rem;
+	}
+
+	#inicio h1 {
+		margin-bottom: 1rem;
+		font-size: 4rem;
+	}
+
+	#inicio p[itemprop="description"] {
+		margin-bottom: 1.5rem;
+		font-size: 1.05rem;
+	}
+
+	#discografia > div {
+		gap: 0.75rem;
+		margin-top: 2rem;
+	}
+
+	#discografia article {
+		padding: 0.55rem 0.55rem 0.9rem;
+	}
+
+	#discografia article figcaption {
+		padding-top: 0.55rem;
+		font-size: 0.9rem;
+	}
+
+	#discografia article p {
+		font-size: 0.75rem;
+	}
+
+	#canciones ul {
+		grid-template-columns: minmax(0, 1fr);
+		margin-top: 1.5rem;
+	}
+
+	#galeria > div {
+		grid-template-rows: repeat(2, 180px);
+		gap: 0.65rem;
+		margin-top: 1.75rem;
+	}
+
+	#galeria figure figcaption {
+		padding: 2.75rem 0.7rem 0.7rem;
+		font-size: 0.72rem;
+	}
+
+	#enlaces ul {
+		gap: 0.6rem;
+		margin-top: 1.5rem;
+	}
+
+	#enlaces a {
+		padding: 0.65rem 0.8rem;
+		font-size: 0.85rem;
+	}
+
+	footer {
+		width: calc(100% - 2.5rem);
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 0.75rem;
+		padding-block: 1.5rem;
+	}
+}
+
+@media (max-width: 390px) {
+	#inicio h1 {
+		font-size: 3.4rem;
+	}
+
+	#discografia > div {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	#galeria > div {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: 260px 200px 200px;
+	}
+
+	#galeria figure:first-child {
+		grid-row: auto;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}
